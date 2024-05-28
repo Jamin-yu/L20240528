@@ -1,5 +1,6 @@
 #include "Deck.h"
 #include "Card.h"
+#include <algorithm>
 
 FDeck::FDeck()
 {
@@ -8,34 +9,39 @@ FDeck::FDeck()
 	{
 		for (int Number = 1; Number <= 13; ++Number)
 		{
-			FCard* Temp = new FCard();
-			switch (Type)
-			{
-				case 0;
-					Temp->SetShape("Diamond");
-					break;
+			//FCard* Temp = new FCard();
+			//switch (Type)
+			//{
+			//	case 0;
+			//		Temp->SetShape(ECardType::Clova);
+			//		break;
 
-				case 1;
-					Temp->SetShape("Spade");
-					break;
+			//	case 1;
+			//		Temp->SetShape(ECardType::Spade);
+			//		break;
 
-				case 2;
-					Temp->SetShape("Clova");
-					break;
+			//	case 2;
+			//		Temp->SetShape(ECardType::Heart);
+			//		break;
 
-				case 3;
-					Temp->SetShape("Heart");
-					break;
+			//	case 3;
+			//		Temp->SetShape(ECardType::Diamond);
+			//		break;
 
-				default:
-					break;
-			}
+			//	default:
+			//		break;
+			//}
+			static_cast<int>(3.4f) == (int)3.4f; //true
+
+			Temp->SetType(static_cast<ECardType>(Type));
 			Temp->SetNumber(Number);
 
 			Cards.push_back(Temp);
 		}
 	}
+	CurrentPosition = Cards.size() - 1;
 
+	std::random_shuffle(Cards.begin(), Cards.end());
 }
 
 FDeck::~FDeck()
@@ -56,8 +62,14 @@ void FDeck::Check()
 	}//자료구조 사용, vector
 	//내가 가진 배열 덩어리에서 하나씩 꺼내줘
 	//조금 느리지만 가독성이 좋아
+}
 
+FCard* FDeck::Draw()
+{
+	FCard* Temp = Cards[CurrentPosition];
+	CurrentPosition--;
 
+	return Temp;
 }
 
 

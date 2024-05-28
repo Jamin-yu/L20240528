@@ -13,10 +13,20 @@ using namespace std;
 int main()
 {
 	FDeck Deck;
+	FPlayer Player;
+	FDealer Dealer;
 
-	Deck.Check();
+	Player.Draw(Deck.Draw());
+	Player.Draw(Deck.Draw());
+	Dealer.Draw(Deck.Draw());
+	Dealer.Draw(Deck.Draw());
 
-	
+	cout << Player.Check() << endl;
+	cout << Dealer.Check() << endl;
+
+	Player.Show();
+	Dealer.Show();
+
 	return 0;
 }
 

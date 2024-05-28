@@ -1,6 +1,6 @@
 #pragma once
-#include "Person.h"
 #include <vector>
+#include "Person.h"
 
 using namespace std;
 
@@ -15,6 +15,7 @@ public:
 	vector<FCard*> Cards;
 	
 	void Draw(FCard* NewCard);
-	
+	int Check();
+	void Show();
 };
 

@@ -6,6 +6,8 @@ public:
 	FPerson();
 	virtual ~FPerson();
 
+	FCard card[];
+
 	void Get();
 	void Open();
 

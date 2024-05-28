@@ -6,5 +6,7 @@ class FPlayer : public FPerson
 public:
 	FPlayer();
 	virtual ~FPlayer();
+
+	
 };
 
